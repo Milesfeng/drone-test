@@ -12,9 +12,12 @@ steps:
 - name: ssh commands
   image: appleboy/drone-ssh
   settings:
-    host: [ host ]
-    username: [ user ]
-    password: [ password ]
+    host: 
+      from_secret: host 
+    username: 
+      from_secret: user 
+    password: 
+      from_secret: password 
     port: 22
     script:
       - ls /
