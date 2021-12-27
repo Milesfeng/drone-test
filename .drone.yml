@@ -20,4 +20,5 @@ steps:
       from_secret: password 
     port: 22
     script:
-      - ls /
+      - cd /home/hsipl/feng/drone
+      - mkdir drone_ssh
