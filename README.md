@@ -1,2 +1,2 @@
 # drone-test
-drone_test
+drone-test

@@ -1,0 +1,10 @@
+kind: pipeline
+name: run ci
+
+steps:
+- name: run pytest
+  image: python
+  commands:
+  - pip install pytest
+  - pytest
+  - echo "ok!!" 
