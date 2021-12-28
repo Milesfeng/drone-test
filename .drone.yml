@@ -21,4 +21,4 @@ steps:
     port: 22
     script:
       - cd /home/hsipl/feng/drone
-      - mkdir drone_ssh
+      - mkdir drone_ssh2
