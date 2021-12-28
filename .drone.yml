@@ -2,11 +2,9 @@ kind: pipeline
 name: run ci
 
 steps:
-- name: run pytest
+- name: run unit-test
   image: python
   commands:
-  - pip install pytest
-  - pytest
   - echo "ok" 
 
 - name: ssh commands
@@ -21,4 +19,4 @@ steps:
     port: 22
     script:
       - cd /home/hsipl/feng/drone
-      - mkdir drone_ssh2
+      - git clone https://github.com/Milesfeng/drone-test.git
