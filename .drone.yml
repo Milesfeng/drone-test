@@ -19,7 +19,7 @@ steps:
     port: 22
     script:
       - cd /home/hsipl/feng/drone
-      - git clone https://github.com/Milesfeng/drone-test.git
+      # - git clone https://github.com/Milesfeng/drone-test.git
 
 - name: slack
   image: plugins/slack
@@ -27,3 +27,5 @@ steps:
     webhook:
       from_secret: slack_webhook
     channel: test
+  when:
+    status: [ success, failure ]
