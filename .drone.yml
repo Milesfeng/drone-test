@@ -7,20 +7,19 @@ steps:
   commands:
   - echo "ok" 
 
-# - name: ssh commands
-#   image: appleboy/drone-ssh
-#   settings:
-#     host: 
-#       from_secret: host 
-#     username: 
-#       from_secret: user 
-#     password: 
-#       from_secret: password 
-#     port: 22
-#     script:
-#       - cd /home/hsipl/feng/drone
-#       - echo 'ssh ok'
-#       # - git clone https://github.com/Milesfeng/drone-test.git
+- name: ssh commands
+  image: appleboy/drone-ssh
+  settings:
+    host: 
+      from_secret: host 
+    username: 
+      from_secret: user 
+    password: 
+      from_secret: password 
+    port: 22
+    script:
+      - cd /home/hsipl/feng/drone
+      - echo "ssh ok"
 
 - name: slack
   image: plugins/slack
