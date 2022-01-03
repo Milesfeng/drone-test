@@ -26,4 +26,4 @@ steps:
   settings:
     webhook:
       from_secret: slack_webhook
-    channel: dev
+    channel: test
