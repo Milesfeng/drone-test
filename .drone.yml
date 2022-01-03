@@ -19,7 +19,7 @@ steps:
     port: 22
     script:
       - cd /home/hsipl/feng/drone
-      - echo "ssh ok"
+      - git clone https://github.com/Milesfeng/drone-test.git
 
 - name: slack
   image: plugins/slack
