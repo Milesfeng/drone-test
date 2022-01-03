@@ -18,7 +18,7 @@ steps:
       from_secret: password 
     port: 22
     script:
-      - cd /home/hsipl/feng/drone
+      - cd /home/hsipl/feng/droness
       # - git clone https://github.com/Milesfeng/drone-test.git
 
 - name: slack
