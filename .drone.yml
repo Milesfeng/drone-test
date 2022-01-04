@@ -1,5 +1,5 @@
 kind: pipeline
-name: run ci
+name: CICD for prd
 
 steps:
 - name: run unit-test
@@ -22,7 +22,6 @@ steps:
       - echo 'main' >> drone_test.txt
       # - git clone https://github.com/Milesfeng/drone-test.git
 
-
 - name: slack
   image: plugins/slack
   settings:
@@ -41,7 +40,7 @@ trigger:
 ---
 
 kind: pipeline
-name: run ci
+name: CICD for dev
 
 - name: ssh commands
   image: appleboy/drone-ssh
