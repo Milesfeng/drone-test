@@ -41,6 +41,7 @@ trigger:
 kind: pipeline
 name: CICD for dev
 
+steps:
 - name: ssh commands
   image: appleboy/drone-ssh
   settings:
