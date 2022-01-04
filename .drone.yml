@@ -37,10 +37,10 @@
 #   event: 
 #     - pull_request
 
-# ---
-
+---
 kind: pipeline
 name: CICD for dev
+
 - name: ssh commands
   image: appleboy/drone-ssh
   settings:
