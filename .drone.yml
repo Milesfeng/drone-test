@@ -1,41 +1,41 @@
-# kind: pipeline
-# name: CICD for prd
+kind: pipeline
+name: CICD for prd
 
-# steps:
-# - name: run unit-test
-#   image: python
-#   commands:
-#   - echo "ok" 
+steps:
+- name: run unit-test
+  image: python
+  commands:
+  - echo "ok" 
 
-# - name: ssh commands
-#   image: appleboy/drone-ssh
-#   settings:
-#     host: 
-#       from_secret: host 
-#     username: 
-#       from_secret: user 
-#     password: 
-#       from_secret: password 
-#     port: 22
-#     script:
-#       - cd /home/hsipl/feng/drone
-#       - echo 'main' >> drone_test.txt
-#       # - git clone https://github.com/Milesfeng/drone-test.git
+- name: ssh commands
+  image: appleboy/drone-ssh
+  settings:
+    host: 
+      from_secret: host 
+    username: 
+      from_secret: user 
+    password: 
+      from_secret: password 
+    port: 22
+    script:
+      - cd /home/hsipl/feng/drone
+      - echo 'main' >> drone_test.txt
+      # - git clone https://github.com/Milesfeng/drone-test.git
 
-# - name: slack
-#   image: plugins/slack
-#   settings:
-#     webhook:
-#       from_secret: slack_webhook
-#     channel: test
-#   when:
-#     status: [ success, failure ]
+- name: slack
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: test
+  when:
+    status: [ success, failure ]
 
-# trigger:
-#   branch: 
-#     - main
-#   event: 
-#     - pull_request
+trigger:
+  branch: 
+    - main
+  event: 
+    - pull_request
 
 ---
 kind: pipeline
@@ -56,14 +56,14 @@ name: CICD for dev
       - echo 'dev' >> drone_test.txt
       # - git clone https://github.com/Milesfeng/drone-test.git
 
-# - name: slack
-#   image: plugins/slack
-#   settings:
-#     webhook:
-#       from_secret: slack_webhook
-#     channel: test
-#   when:
-#     status: [ success, failure ]
+- name: slack
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: test
+  when:
+    status: [ success, failure ]
 
 trigger:
   branch: 
