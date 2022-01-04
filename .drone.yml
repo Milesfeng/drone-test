@@ -35,39 +35,39 @@ trigger:
   branch: 
     - main
   event: 
-    - pull_request
+    - push
 
----
+# ---
 
-kind: pipeline
-name: CICD for dev
+# kind: pipeline
+# name: CICD for dev
 
-- name: ssh commands
-  image: appleboy/drone-ssh
-  settings:
-    host: 
-      from_secret: host 
-    username: 
-      from_secret: user 
-    password: 
-      from_secret: password 
-    port: 22
-    script:
-      - cd /home/hsipl/feng/drone
-      - echo 'dev' >> drone_test.txt
-      # - git clone https://github.com/Milesfeng/drone-test.git
+# - name: ssh commands
+#   image: appleboy/drone-ssh
+#   settings:
+#     host: 
+#       from_secret: host 
+#     username: 
+#       from_secret: user 
+#     password: 
+#       from_secret: password 
+#     port: 22
+#     script:
+#       - cd /home/hsipl/feng/drone
+#       - echo 'dev' >> drone_test.txt
+#       # - git clone https://github.com/Milesfeng/drone-test.git
 
-- name: slack
-  image: plugins/slack
-  settings:
-    webhook:
-      from_secret: slack_webhook
-    channel: test
-  when:
-    status: [ success, failure ]
+# - name: slack
+#   image: plugins/slack
+#   settings:
+#     webhook:
+#       from_secret: slack_webhook
+#     channel: test
+#   when:
+#     status: [ success, failure ]
 
-trigger:
-  branch: 
-    - dev
-  event: 
-    - push    
+# trigger:
+#   branch: 
+#     - dev
+#   event: 
+#     - push    
