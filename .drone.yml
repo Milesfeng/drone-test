@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: ci test
+name: drone-ci test
 
 steps:
 - name: backend
