@@ -15,8 +15,3 @@ steps:
   - npm install
   - npm test
 
-trigger:
-  branch: 
-    - test_ci
-  event: 
-    - push    
