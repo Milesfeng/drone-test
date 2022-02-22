@@ -1,23 +1,19 @@
 kind: pipeline
 type: docker
-name: drone-ci test
+name: Build docker image to github
 
 steps:
-- name: backend
-  image: golang
-  commands:
-  - go mod init test
-  - go build
-  - go test
-
-- name: frontend
-  image: node
-  commands:
-  - npm install
-  - npm test
+- name: docker push
+  image: plugins/docker
+  settings:
+    registry: docker.pkg.github.com
+    repo: docker.pkg.github.com/Milesfeng/drone-test/test
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
+    username: Milesfeng
+    password: 
+      from_secret: docker_token
 
 trigger:
   branch: 
-    - test_ci
-  event: 
-    - push 
+    - build_docker_image
